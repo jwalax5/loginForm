@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './_style/App.css';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { HashRouter, Switch, Route } from 'react-router-dom';
 import { ProtectedRoute } from './_component';
 import { LoginPage, RegistrationPage, HomePage } from './_view';
 
@@ -10,14 +10,14 @@ class App extends Component {
       <div className="App container">
         <div className="row justify-content-center align-items-center">
           <div className="col col-6">
-            <BrowserRouter>
+            <HashRouter>
               <Switch>
-                <ProtectedRoute exact path="/" component={HomePage} />
-                <Route path="/login" component={LoginPage} />
-                <Route path="/register" component={RegistrationPage} />
-                <ProtectedRoute path="/home" component={HomePage} />
+                <ProtectedRoute exact path={`${process.env.PUBLIC_URL}/`} component={HomePage} />
+                <Route exact path={`${process.env.PUBLIC_URL}/login`} component={LoginPage} />
+                <Route exact path={`${process.env.PUBLIC_URL}/register`} component={RegistrationPage} />
+                <ProtectedRoute exact path={`${process.env.PUBLIC_URL}/home`} component={HomePage} />
               </Switch>
-            </BrowserRouter>
+            </HashRouter>
           </div>
         </div>
       </div>

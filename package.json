@@ -2,6 +2,7 @@
   "name": "loginform",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://elasticbeanstalk-ap-northeast-1-786341602909.s3-website-ap-northeast-1.amazonaws.com",
   "dependencies": {
     "react": "^16.8.5",
     "react-dom": "^16.8.5",

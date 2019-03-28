@@ -36,7 +36,7 @@ export const RegisterForm = (props) => {
             <div className="row">
                 <div className="col">
                     <button type="submit" className="btn btn-primary">Register</button>
-                    <Link to="/login" className="marginLeft10" >back</Link>
+                    <Link to={`${process.env.PUBLIC_URL}/login`} className="marginLeft10" >back</Link>
                     <LoadingSpinner show={props.showSpinner} />
                 </div>
             </div>
