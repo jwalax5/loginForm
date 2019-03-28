@@ -11,8 +11,7 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => {
 };
 
 const isLoggedIn = () => {
-    //later check the expired date of jwt 
-    console.log('checkjwt', localStorage.getItem('user'));
+    console.log('check user', localStorage.getItem('user'));
     if (localStorage.getItem('user')) {
         return true;
     }

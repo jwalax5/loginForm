@@ -11,7 +11,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "NODE_ENV=production react-scripts build && node deploy build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,6 +29,8 @@
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-react": "^7.0.0",
     "bcrypt": "^3.0.5",
-    "react-router-dom": "^5.0.0"
+    "react-loader-spinner": "^2.3.0",
+    "react-router-dom": "^5.0.0",
+    "s3": "^4.4.0"
   }
 }

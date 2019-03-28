@@ -12,7 +12,8 @@ class LoginPage extends Component {
       loginFormPassword: false,
       loginFormPasswordErrMsg: "Password is required",
     },
-    isPristine: true
+    isPristine: true,
+    showSpinner: false
   };
 
   handleSubmit = (e) => {
@@ -29,7 +30,9 @@ class LoginPage extends Component {
     }
 
     if (!error.loginFormEmail && !error.loginFormPassword) {
+      this.setState({ ...this.state, showSpinner: true });
       UserService.login(e.target.loginFormEmail.value, e.target.loginFormPassword.value).then(loginResult => {
+        this.setState({ ...this.state, showSpinner: false });
         if (!loginResult) {
           error.loginFormEmail = true;
           error.loginFormPassword = true;
@@ -55,7 +58,7 @@ class LoginPage extends Component {
   render() {
     return (
       <div>
-        <LoginForm invalid={this.state.invalid} isPristine={this.state.isPristine} handleSubmit={this.handleSubmit.bind(this)} />
+        <LoginForm showSpinner={this.state.showSpinner} invalid={this.state.invalid} isPristine={this.state.isPristine} handleSubmit={this.handleSubmit.bind(this)} />
       </div>
     );
   }

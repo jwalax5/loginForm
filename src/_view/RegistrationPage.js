@@ -16,7 +16,8 @@ class RegistrationPage extends Component {
             regFormPasswordErrMsg: "",
             regFormConfirmedPasswordErrMsg: ""
         },
-        isPristine: true
+        isPristine: true,
+        showSpinner: false
     };
 
     handleSubmit = (e) => {
@@ -95,8 +96,10 @@ class RegistrationPage extends Component {
                 password: regFormPasswordVal,
                 salt: 'salt'
             }
+            this.setState({ ...this.state, showSpinner: true });
             UserService.register(user).then(newAddedUser => {
                 console.log(newAddedUser);
+                this.setState({ ...this.state, showSpinner: false });
                 if (!newAddedUser) {
                     error.regFormEmail = true;
                     error.regFormEmailErrMsg = "Email already registered";
@@ -121,7 +124,7 @@ class RegistrationPage extends Component {
     render() {
         return (
             <div>
-                <RegisterForm invalid={this.state.invalid} isPristine={this.state.isPristine} handleSubmit={this.handleSubmit.bind(this)} />
+                <RegisterForm showSpinner={this.state.showSpinner} invalid={this.state.invalid} isPristine={this.state.isPristine} handleSubmit={this.handleSubmit.bind(this)} />
             </div>
         );
     };

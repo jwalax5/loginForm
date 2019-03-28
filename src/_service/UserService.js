@@ -8,13 +8,13 @@ const login = (email,password) => {
         body: 'email=' + email + '&' + 'password=' + password
     };
 
-    return fetch('http://localhost:8080/api/getUser',req)
+   // return fetch('http://localhost:8080/api/getUser',req)
+    return fetch('http://loginsystembackend-env.6vzap66pmd.ap-northeast-1.elasticbeanstalk.com/api/getUser',req)
         .then(response => handleResponse(response))
         .then(json => {
             return json;
         })
 }
-
 
 const register = (user) => {
     const req = {
@@ -23,7 +23,8 @@ const register = (user) => {
         body: JSON.stringify(user)
     };
 
-    return fetch('http://localhost:8080/api/createUser',req)
+    //return fetch('http://localhost:8080/api/createUser',req)
+    return fetch('http://loginsystembackend-env.6vzap66pmd.ap-northeast-1.elasticbeanstalk.com/api/createUser',req)
         .then(response => handleResponse(response))
         .then(json => {
             return json;

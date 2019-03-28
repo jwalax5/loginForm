@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { LoadingSpinner } from '../_component';
 
 export const LoginForm = (props) => {
     return (
@@ -21,6 +22,7 @@ export const LoginForm = (props) => {
                 <div className="col">
                     <button type="submit" className="btn btn-primary">Sign In</button>
                     <Link to="/register" className="marginLeft10">Register</Link>
+                    <LoadingSpinner show={props.showSpinner} />
                 </div>
             </div>
         </form>
